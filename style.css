@@ -17,9 +17,14 @@
     --color-border: #f9a8d4;
     --color-romantic: #be185d;
     --color-romantic-light: #ec4899;
-    --color-techno-gold: #ffd700;
-    --color-techno-pink: #ff69b4;
-    --color-techno-tribute: #9333ea;
+    
+    /* Paleta Technoblade/Minecraft */
+    --color-techno-gold: #fccb06;
+    --color-techno-ruby: #d91c3e;
+    --mc-diamond-light: #69d2e7;
+    --mc-diamond-dark: #3b88a0;
+    --mc-stick-light: #a37b52;
+    --mc-stick-dark: #664934;
 
     /* Espaciado */
     --space-8: 8px;
@@ -41,7 +46,7 @@
     --shadow-romantic: 0 8px 32px rgba(236, 72, 153, 0.2);
     --shadow-deep: 0 16px 48px rgba(236, 72, 153, 0.25);
     --shadow-crown: 0 4px 16px rgba(255, 215, 0, 0.3);
-    --shadow-tribute: 0 4px 25px rgba(147, 51, 234, 0.1);
+    --shadow-tribute: 0 4px 25px rgba(236, 72, 153, 0.1);
 
     /* Animaciones */
     --duration-fast: 150ms;
@@ -98,53 +103,77 @@ body::after {
 /* HOMENAJE A TECHNOBLADE - PIE DE PÁGINA SUTIL Y ELEGANTE */
 /* ======================================================== */
 .techno-tribute {
-    /* Posicionamiento y modelo de caja */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Espacio entre el ícono y el texto */
-    width: max-content; /* El contenedor se ajusta al contenido */
+    gap: 12px;
+    width: max-content;
     max-width: 90%;
-    margin: 48px auto 32px auto; /* Centrado y con buen espaciado vertical */
+    margin: 48px auto 32px auto;
     padding: 10px 22px;
-
-    /* Estilo visual */
-    background: rgba(253, 242, 248, 0.7); /* Fondo rosa muy pálido y semitransparente */
-    backdrop-filter: blur(10px); /* Desenfoque sutil para un efecto "glassmorphism" */
-    border: 1px solid rgba(236, 72, 153, 0.2); /* Borde rosa muy suave */
+    background: rgba(253, 242, 248, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(236, 72, 153, 0.2);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-tribute);
-    
-    /* Tipografía */
-    color: var(--color-romantic-light); /* Color de texto rosa claro */
+    color: var(--color-romantic-light);
     font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 500;
-    
-    /* Animación */
     opacity: 0;
     transform: translateY(20px);
     animation: fade-in-up 1s ease-out 0.5s forwards;
 }
 
-/* Icono de corona pixelado creado con CSS */
-.techno-tribute::before {
+.techno-tribute::before,
+.techno-tribute::after {
     content: '';
     display: inline-block;
-    width: 14px;
-    height: 12px;
-    margin-top: -2px; /* Ajuste vertical fino */
-    image-rendering: pixelated; /* Asegura el look pixelado */
-    background: 
-      /* Fila 1 (joyas superiores): 3 'píxeles' de 2x2px */
-      linear-gradient(var(--color-techno-gold) 100%, transparent 0) 0 0 / 2px 2px,
-      linear-gradient(var(--color-techno-gold) 100%, transparent 0) 6px 0 / 2px 2px,
-      linear-gradient(var(--color-techno-gold) 100%, transparent 0) 12px 0 / 2px 2px,
-      /* Fila 2 (cuerpo de la corona): 1 'píxel' de 14x4px */
-      linear-gradient(var(--color-techno-gold) 100%, transparent 0) 0 4px / 14px 4px;
-    background-repeat: no-repeat;
-    animation: crown-shimmer 2.5s infinite ease-in-out;
+    image-rendering: pixelated;
+    flex-shrink: 0;
 }
+
+/* Icono de Corona Pixel Art (Mejorado) */
+.techno-tribute::before {
+    width: 15px;
+    height: 12px;
+    --c: var(--color-techno-gold);
+    --j: var(--color-techno-ruby); /* Jewel color */
+    background:
+      /* Joya central */
+      linear-gradient(var(--j) 100%, #0000 0) 6px 2px / 3px 3px,
+      /* Puntas de la corona */
+      linear-gradient(var(--c) 100%, #0000 0) 0 4px / 3px 3px,
+      linear-gradient(var(--c) 100%, #0000 0) 6px 0 / 3px 3px,
+      linear-gradient(var(--c) 100%, #0000 0) 12px 4px / 3px 3px,
+      /* Base de la corona */
+      linear-gradient(var(--c) 100%, #0000 0) 0px 7px / 15px 5px;
+    background-repeat: no-repeat;
+    animation: icon-shimmer 3s infinite ease-in-out;
+}
+
+/* Icono de Espada de Diamante Pixel Art */
+.techno-tribute::after {
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    --dl: var(--mc-diamond-light);
+    --dd: var(--mc-diamond-dark);
+    --sl: var(--mc-stick-light);
+    --sd: var(--mc-stick-dark);
+    background:
+      /* Hoja de la espada */
+      linear-gradient(var(--dl) 100%, #0000 0) 6px 0 / 2px 8px,
+      linear-gradient(var(--dl) 100%, #0000 0) 4px 2px / 6px 2px,
+      linear-gradient(var(--dd) 100%, #0000 0) 6px 2px / 2px 4px,
+      /* Guarda de la espada */
+      linear-gradient(var(--sd) 100%, #0000 0) 2px 8px / 10px 2px,
+      /* Mango */
+      linear-gradient(var(--sl) 100%, #0000 0) 5px 10px / 4px 4px;
+    background-repeat: no-repeat;
+    animation: icon-shimmer 3s infinite ease-in-out 0.2s; /* Delay en la segunda animacion */
+}
+
 
 @keyframes fade-in-up {
     from {
@@ -157,12 +186,12 @@ body::after {
     }
 }
 
-@keyframes crown-shimmer {
+@keyframes icon-shimmer {
     0%, 100% {
-        filter: brightness(1);
+        filter: brightness(1) drop-shadow(0 0 1px rgba(255,255,255,0.2));
     }
     50% {
-        filter: brightness(1.25);
+        filter: brightness(1.2) drop-shadow(0 0 3px var(--color-primary-hover));
     }
 }
 
@@ -260,7 +289,7 @@ body::after {
 
 /* Corona sutil en el título */
 .titulo-acertijos::after {
-    content: '�';
+    content: '👑';
     position: absolute;
     top: -10px;
     right: -15px;
