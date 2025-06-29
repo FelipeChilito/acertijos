@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acertijos del Corazón</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Una experiencia romántica interactiva">
+</head>
+<body>
+    <!-- PANTALLA 1: ACERTIJOS -->
+    <div id="pantallaAcertijos" class="pantalla pantalla-acertijos activa">
+        <div class="contenedor-acertijos">
+            <h1 class="titulo-acertijos">💕 Acertijos del Corazón 💕</h1>
+            <p class="subtitulo-acertijos">Resuelve los acertijos para descubrir la contraseña secreta</p>
+
+            <div class="lista-acertijos">
+                <div class="acertijo">
+                    <span class="numero-acertijo">1.</span>
+                    <p class="texto-acertijo">El primer dígito es el primer número del día en que empezó nuestra historia de amor.</p>
+                </div>
+
+                <div class="acertijo">
+                    <span class="numero-acertijo">2.</span>
+                    <p class="texto-acertijo">El segundo dígito es el último número de tu IP de Stardew.</p>
+                </div>
+
+                <div class="acertijo">
+                    <span class="numero-acertijo">3.</span>
+                    <p class="texto-acertijo">El tercer y cuarto dígito es el increible dia en que nos cruzamos por primera vez en nuestro chat de Discord.</p>
+                </div>
+
+                <div class="acertijo">
+                    <span class="numero-acertijo">4.</span>
+                    <p class="texto-acertijo">El quinto dígito es el número de letras que tiene mi color favorito.</p>
+                </div>
+            </div>
+
+            <button class="btn btn--primary btn--lg" onclick="irAPantallaContraseña()">
+                Continuar al Código Secreto
+            </button>
+        </div>
+    </div>
+
+    <!-- PANTALLA 2: CONTRASEÑA -->
+    <div id="pantallaContraseña" class="pantalla pantalla-contraseña">
+        <div class="contenedor-contraseña">
+            <h2 class="titulo-contraseña">🔐 Ingresa el Código Secreto</h2>
+
+            <div class="display-entrada" id="displayEntrada">•••••</div>
+
+            <div class="area-mensaje-error">
+                <div class="mensaje-error" id="mensajeError"></div>
+            </div>
+
+            <div class="teclado-numerico">
+                <button class="tecla" onclick="ingresarDigito('1')">1</button>
+                <button class="tecla" onclick="ingresarDigito('2')">2</button>
+                <button class="tecla" onclick="ingresarDigito('3')">3</button>
+                <button class="tecla" onclick="ingresarDigito('4')">4</button>
+                <button class="tecla" onclick="ingresarDigito('5')">5</button>
+                <button class="tecla" onclick="ingresarDigito('6')">6</button>
+                <button class="tecla" onclick="ingresarDigito('7')">7</button>
+                <button class="tecla" onclick="ingresarDigito('8')">8</button>
+                <button class="tecla" onclick="ingresarDigito('9')">9</button>
+                <button class="tecla tecla-vacia"></button>
+                <button class="tecla" onclick="ingresarDigito('0')">0</button>
+                <button class="tecla tecla-borrar" onclick="borrarDigito()">⌫</button>
+            </div>
+
+            <div class="area-botones">
+                <button class="btn btn--secondary" onclick="volverAAcertijos()">
+                    ← Volver a Acertijos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANTALLA 3: CARTA -->
+    <div id="pantallaCarta" class="pantalla pantalla-carta">
+        <div class="libreta">
+            <div class="contenido-carta">
+                <p class="fecha-carta">Para mi amor eterno ❤️</p>
+
+                <div class="texto-carta" id="contenidoCarta">
+                    <!-- El contenido de la carta se cargará aquí de forma segura -->
+                    <p>Cargando tu mensaje especial...</p>
+                </div>
+
+                <div class="firma">
+                    <p>Con todo mi amor infinito, ♡</p>
+                    <em>Felipe</em>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

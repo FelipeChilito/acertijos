@@ -1,0 +1,37 @@
+{
+  "name": "acertijos-del-corazon",
+  "version": "1.0.0",
+  "description": "Una experiencia romántica interactiva con acertijos y carta personalizada",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "romantic",
+    "interactive",
+    "love",
+    "riddles",
+    "netlify"
+  ],
+  "author": "Felipe",
+  "license": "MIT",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/acertijos-del-corazon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tu-usuario/acertijos-del-corazon/issues"
+  },
+  "homepage": "https://tu-sitio.netlify.app"
+}
