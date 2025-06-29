@@ -19,6 +19,7 @@
     --color-romantic-light: #ec4899;
     --color-techno-gold: #ffd700;
     --color-techno-pink: #ff69b4;
+    --color-techno-tribute: #e6b3ff;
 
     /* Espaciado */
     --space-8: 8px;
@@ -40,6 +41,7 @@
     --shadow-romantic: 0 8px 32px rgba(236, 72, 153, 0.2);
     --shadow-deep: 0 16px 48px rgba(236, 72, 153, 0.25);
     --shadow-crown: 0 4px 16px rgba(255, 215, 0, 0.3);
+    --shadow-tribute: 0 2px 12px rgba(230, 179, 255, 0.3);
 
     /* Animaciones */
     --duration-fast: 150ms;
@@ -592,6 +594,64 @@ body::after {
     font-family: var(--font-serif);
 }
 
+/* NUEVO: Homenaje integrado dentro de la carta */
+.carta-tribute {
+    margin-top: var(--space-40);
+    padding: var(--space-16) var(--space-24);
+    background: linear-gradient(135deg, rgba(230, 179, 255, 0.15) 0%, rgba(252, 231, 243, 0.2) 100%);
+    border: 1px solid rgba(230, 179, 255, 0.3);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-tribute);
+    backdrop-filter: blur(5px);
+    animation: tribute-glow 6s ease-in-out infinite;
+}
+
+.carta-tribute-text {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-techno-tribute);
+    letter-spacing: 0.5px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+}
+
+/* Icono de corona pixel art usando CSS */
+.carta-tribute-text::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    background-image: 
+        linear-gradient(to right, transparent 4px, var(--color-techno-gold) 4px, var(--color-techno-gold) 6px, transparent 6px),
+        linear-gradient(to right, transparent 2px, var(--color-techno-gold) 2px, var(--color-techno-gold) 4px, transparent 4px, transparent 6px, var(--color-techno-gold) 6px, var(--color-techno-gold) 8px, transparent 8px),
+        linear-gradient(to right, var(--color-techno-gold) 0px, var(--color-techno-gold) 10px, transparent 10px);
+    background-size: 14px 2px, 14px 2px, 14px 2px;
+    background-position: 0 0, 0 2px, 0 4px;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    animation: crown-pixel-shine 3s ease-in-out infinite;
+}
+
+.carta-tribute-text::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 10px;
+    background: 
+        linear-gradient(45deg, transparent 35%, var(--color-techno-tribute) 35%, var(--color-techno-tribute) 65%, transparent 65%),
+        linear-gradient(-45deg, transparent 35%, var(--color-techno-tribute) 35%, var(--color-techno-tribute) 65%, transparent 65%);
+    background-size: 8px 8px;
+    background-position: 0 0, 0 0;
+    opacity: 0.6;
+    animation: sword-pixel-glow 4s ease-in-out infinite;
+}
+
 /* Responsive mejorado para móviles */
 @media (max-width: 768px) {
     body::before,
@@ -605,6 +665,25 @@ body::after {
         bottom: 12px;
         right: 12px;
         padding: 3px 6px;
+    }
+    
+    .carta-tribute {
+        margin-top: var(--space-32);
+        padding: var(--space-12) var(--space-16);
+    }
+    
+    .carta-tribute-text {
+        font-size: 10px;
+    }
+    
+    .carta-tribute-text::before {
+        width: 12px;
+        height: 10px;
+    }
+    
+    .carta-tribute-text::after {
+        width: 10px;
+        height: 8px;
     }
     
     .pantalla {
@@ -654,6 +733,26 @@ body::after {
         bottom: 10px;
         right: 10px;
         padding: 2px 5px;
+    }
+    
+    .carta-tribute {
+        margin-top: var(--space-24);
+        padding: var(--space-8) var(--space-12);
+    }
+    
+    .carta-tribute-text {
+        font-size: 9px;
+        gap: var(--space-8);
+    }
+    
+    .carta-tribute-text::before {
+        width: 10px;
+        height: 8px;
+    }
+    
+    .carta-tribute-text::after {
+        width: 8px;
+        height: 6px;
     }
     
     .libreta {
@@ -737,4 +836,26 @@ body::after {
 @keyframes crown-pulse {
     0%, 100% { opacity: 0.4; transform: scale(1); }
     50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* Nuevas animaciones para el homenaje en la carta */
+@keyframes tribute-glow {
+    0%, 100% { 
+        box-shadow: var(--shadow-tribute);
+        background: linear-gradient(135deg, rgba(230, 179, 255, 0.15) 0%, rgba(252, 231, 243, 0.2) 100%);
+    }
+    50% { 
+        box-shadow: 0 4px 20px rgba(230, 179, 255, 0.4);
+        background: linear-gradient(135deg, rgba(230, 179, 255, 0.2) 0%, rgba(252, 231, 243, 0.25) 100%);
+    }
+}
+
+@keyframes crown-pixel-shine {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes sword-pixel-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
 }
