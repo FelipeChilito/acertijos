@@ -412,114 +412,77 @@ html, body {
     color: #c2185b;
 }
 
-/* Responsive design */
+/* Mejoras específicas para legibilidad móvil de la carta */
 @media (max-width: 768px) {
-    .pantalla {
-        padding: var(--space-12);
-    }
-
-    .contenedor-acertijos {
-        padding: var(--space-24);
-    }
-
-    .titulo-acertijos {
-        font-size: var(--font-size-3xl);
-    }
-
-    .subtitulo-acertijos {
-        font-size: var(--font-size-lg);
-    }
-
-    .acertijo {
-        padding: var(--space-12);
-    }
-
-    .numero-acertijo {
-        font-size: var(--font-size-lg);
-    }
-
-    .texto-acertijo {
-        font-size: var(--font-size-base);
-    }
-
-    .contenedor-contraseña {
-        padding: var(--space-24);
-    }
-
-    .titulo-contraseña {
-        font-size: var(--font-size-2xl);
-    }
-
-    .display-entrada {
-        font-size: var(--font-size-3xl);
-        padding: var(--space-12) var(--space-20);
-        letter-spacing: 8px;
-    }
-
-    .teclado-numerico {
-        max-width: 200px;
-        gap: var(--space-8);
-    }
-
-    .tecla {
-        padding: var(--space-12);
-        font-size: var(--font-size-lg);
-        min-height: 50px;
-    }
-
-    .libreta {
-        padding: var(--space-24);
-    }
-
-    .libreta::before {
-        left: 40px;
-    }
-
-    .fecha-carta {
-        font-size: var(--font-size-lg);
-    }
-
-    .destinatario {
-        font-size: var(--font-size-xl);
-    }
-
-    .texto-carta {
-        font-size: var(--font-size-base);
-    }
-
-    .firma {
-        font-size: var(--font-size-lg);
-    }
+  .libreta {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    padding: 24px !important;
+  }
+  
+  .texto-carta {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .contenido-carta {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+  
+  .fecha-carta {
+    font-size: 18px !important;
+  }
+  
+  .destinatario {
+    font-size: 20px !important;
+  }
+  
+  .firma {
+    font-size: 18px !important;
+  }
 }
 
 @media (max-width: 480px) {
-    .contenedor-acertijos,
-    .contenedor-contraseña {
-        padding: var(--space-20);
-    }
+  .libreta {
+    font-size: 17px !important;
+    padding: 20px !important;
+  }
+  
+  .texto-carta {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+  
+  .contenido-carta {
+    font-size: 15px !important;
+  }
+  
+  .fecha-carta {
+    font-size: 16px !important;
+  }
+  
+  .destinatario {
+    font-size: 18px !important;
+  }
+  
+  .firma {
+    font-size: 16px !important;
+  }
+}
 
-    .titulo-acertijos {
-        font-size: var(--font-size-2xl);
-    }
+/* Mejora adicional para párrafos de la carta */
+@media (max-width: 768px) {
+  .texto-carta p {
+    margin-bottom: 16px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+}
 
-    .titulo-contraseña {
-        font-size: var(--font-size-xl);
-    }
-
-    .display-entrada {
-        font-size: var(--font-size-2xl);
-        letter-spacing: 6px;
-    }
-
-    .libreta {
-        padding: var(--space-20);
-    }
-
-    .libreta::before {
-        left: 30px;
-    }
-
-    .texto-carta {
-        font-size: var(--font-size-sm);
-    }
+@media (max-width: 480px) {
+  .texto-carta p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
 }
