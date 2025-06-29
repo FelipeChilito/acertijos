@@ -1,61 +1,7 @@
-[build]
-  # Directorio de publicación (donde están los archivos estáticos)
-  publish = "."
-
-  # Comando de build (no necesario para sitios estáticos simples)
-  command = ""
-
 [functions]
-  # Directorio donde están las funciones serverless
   directory = "netlify/functions"
 
 [[redirects]]
-  # Redirigir todas las llamadas a /api/* a las funciones serverless
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  to   = "/.netlify/functions/:splat"
   status = 200
-
-# Configuración de headers para seguridad
-[[headers]]
-  for = "/*"
-  [headers.values]
-    # Seguridad básica
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-    # Content Security Policy básico
-    Content-Security-Policy = """
-      default-src 'self';
-      script-src 'self' 'unsafe-inline';
-      style-src 'self' 'unsafe-inline';
-      img-src 'self' data: https:;
-      font-src 'self' https://fonts.gstatic.com;
-      connect-src 'self' https:;
-    """
-
-# Configuración específica para las funciones
-[[headers]]
-  for = "/.netlify/functions/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Headers = "Authorization, Content-Type"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-
-# Configuración para archivos estáticos
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-[[headers]]
-  for = "/js/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-
-# Manejo de errores 404
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404
