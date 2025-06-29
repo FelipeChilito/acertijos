@@ -25,6 +25,17 @@
     --mc-diamond-dark: #3b88a0;
     --mc-stick-light: #a37b52;
     --mc-stick-dark: #664934;
+    
+    /* Minecraft Pixel Art Colors */
+    --mc-heart-red: #ff0000;
+    --mc-heart-dark: #cc0000;
+    --mc-chest-brown: #8b4513;
+    --mc-chest-dark: #654321;
+    --mc-chest-metal: #c0c0c0;
+    --mc-pig-pink: #ffc0cb;
+    --mc-pig-dark: #ff69b4;
+    --mc-tool-gray: #808080;
+    --mc-tool-dark: #404040;
 
     /* Espaciado */
     --space-8: 8px;
@@ -76,26 +87,54 @@ html, body {
 
 /* Elementos decorativos románticos con Technoblade */
 body::before {
-    content: '👑';
+    content: '';
     position: fixed;
     top: 20px;
     left: 20px;
-    font-size: 28px;
-    color: var(--color-techno-gold);
+    width: 18px;
+    height: 15px;
     opacity: 0.7;
     z-index: 1;
-    text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+    background:
+      /* Crown jewels */
+      linear-gradient(var(--color-techno-ruby) 100%, #0000 0) 7px 2px / 4px 4px,
+      /* Crown spikes */
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 1px 5px / 3px 4px,
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 7px 1px / 4px 6px,
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 14px 5px / 3px 4px,
+      /* Crown base */
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 1px 9px / 16px 6px;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
     animation: crown-shine 2s ease-in-out infinite alternate;
 }
 
 body::after {
-    content: '🐷💕';
+    content: '';
     position: fixed;
     top: 20px;
     right: 20px;
-    font-size: 24px;
+    width: 32px;
+    height: 16px;
     opacity: 0.6;
     z-index: 1;
+    background:
+      /* Pig body */
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 3px 4px / 10px 6px,
+      /* Pig head */
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 5px 2px / 6px 4px,
+      /* Pig snout */
+      linear-gradient(var(--mc-pig-dark) 100%, #0000 0) 6px 4px / 4px 2px,
+      /* Heart next to pig */
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 17px 3px / 2px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 20px 2px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 23px 2px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 26px 3px / 2px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 18px 5px / 9px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 19px 7px / 7px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 21px 9px / 3px 2px;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
     animation: techno-float 3s ease-in-out infinite;
 }
 
@@ -149,154 +188,110 @@ body::after {
       /* Base de la corona */
       linear-gradient(var(--c) 100%, #0000 0) 0px 7px / 15px 5px;
     background-repeat: no-repeat;
-    animation: icon-shimmer 3s infinite ease-in-out;
-}
-
-/* Icono de Espada de Diamante Pixel Art */
-.techno-tribute::after {
-    width: 14px;
-    height: 14px;
-    transform: rotate(45deg);
-    --dl: var(--mc-diamond-light);
-    --dd: var(--mc-diamond-dark);
-    --sl: var(--mc-stick-light);
-    --sd: var(--mc-stick-dark);
-    background:
-      /* Hoja de la espada */
-      linear-gradient(var(--dl) 100%, #0000 0) 6px 0 / 2px 8px,
-      linear-gradient(var(--dl) 100%, #0000 0) 4px 2px / 6px 2px,
-      linear-gradient(var(--dd) 100%, #0000 0) 6px 2px / 2px 4px,
-      /* Guarda de la espada */
-      linear-gradient(var(--sd) 100%, #0000 0) 2px 8px / 10px 2px,
-      /* Mango */
-      linear-gradient(var(--sl) 100%, #0000 0) 5px 10px / 4px 4px;
-    background-repeat: no-repeat;
-    animation: icon-shimmer 3s infinite ease-in-out 0.2s; /* Delay en la segunda animacion */
-}
-
-
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes icon-shimmer {
-    0%, 100% {
-        filter: brightness(1) drop-shadow(0 0 1px rgba(255,255,255,0.2));
-    }
-    50% {
-        filter: brightness(1.2) drop-shadow(0 0 3px var(--color-primary-hover));
-    }
-}
-
-
-/* Botones mejorados con toque Techno */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-12) var(--space-24);
-    border: none;
-    border-radius: var(--radius-base);
-    font-size: 16px;
-    font-weight: 500;
-    font-family: var(--font-sans);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-romantic);
-    text-decoration: none;
-    box-shadow: var(--shadow-soft);
-    position: relative;
-}
-
-.btn--primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-romantic-light) 100%);
-    color: white;
-}
-
-.btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-romantic), var(--shadow-crown);
-}
-
-/* Pantallas principales */
-.pantalla {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    padding: var(--space-20);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all var(--duration-normal) var(--ease-romantic);
-}
-
-.pantalla.activa {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* PANTALLA 1 - ACERTIJOS con decoraciones Technoblade */
-.pantalla-acertijos {
-    flex-direction: column;
-}
-
-.contenedor-acertijos {
-    background: var(--color-surface);
-    padding: var(--space-40);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-romantic);
-    border: 2px solid var(--color-border);
-    max-width: 700px;
-    width: 100%;
-    position: relative;
-}
-
-.contenedor-acertijos::before {
-    content: '👑💕';
-    position: absolute;
-    top: -15px;
-    left: 30px;
-    font-size: 30px;
-    animation: crown-float 4s ease-in-out infinite;
-}
-
-.contenedor-acertijos::after {
-    content: '🐷🌹';
-    position: absolute;
-    bottom: -15px;
-    right: 30px;
-    font-size: 30px;
-    animation: techno-bounce 3s ease-in-out infinite;
-}
-
-.titulo-acertijos {
-    font-family: var(--font-romantic);
-    font-size: 42px;
-    font-weight: 600;
-    color: var(--color-romantic);
-    margin-bottom: var(--space-16);
-    text-shadow: 2px 2px 4px rgba(236, 72, 153, 0.1);
-    position: relative;
-}
-
-/* Corona sutil en el título */
-.titulo-acertijos::after {
-    content: '👑';
-    position: absolute;
-    top: -10px;
-    right: -15px;
-    font-size: 20px;
-    color: var(--color-techno-gold);
-    opacity: 0.6;
     animation: crown-twinkle 2s ease-in-out infinite;
+}
+
+/* ======================================================== */
+/* MINECRAFT PIXEL ART ICONS */
+/* ======================================================== */
+
+/* Minecraft Heart Icon */
+.mc-heart {
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    image-rendering: pixelated;
+    background:
+      /* Heart shape using pixel art */
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 1px 3px / 2px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 4px 2px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 7px 2px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 10px 2px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 13px 3px / 2px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 2px 5px / 11px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 3px 7px / 9px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 4px 9px / 7px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 6px 11px / 3px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 7px 13px / 1px 1px;
+    background-repeat: no-repeat;
+    animation: heart-beat 1.5s ease-in-out infinite;
+}
+
+/* Minecraft Chest/Lock Icon */
+.mc-chest {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    image-rendering: pixelated;
+    background:
+      /* Chest body */
+      linear-gradient(var(--mc-chest-brown) 100%, #0000 0) 2px 4px / 12px 10px,
+      /* Chest top */
+      linear-gradient(var(--mc-chest-dark) 100%, #0000 0) 2px 2px / 12px 2px,
+      /* Lock */
+      linear-gradient(var(--mc-chest-metal) 100%, #0000 0) 7px 6px / 2px 4px,
+      /* Lock detail */
+      linear-gradient(var(--mc-tool-dark) 100%, #0000 0) 7px 7px / 2px 1px;
+    background-repeat: no-repeat;
+    animation: chest-glow 2s ease-in-out infinite;
+}
+
+/* Minecraft Pickaxe/Tool Icon for backspace */
+.mc-pickaxe {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    image-rendering: pixelated;
+    background:
+      /* Pickaxe head */
+      linear-gradient(var(--mc-tool-gray) 100%, #0000 0) 2px 2px / 8px 2px,
+      linear-gradient(var(--mc-tool-gray) 100%, #0000 0) 4px 4px / 4px 2px,
+      /* Handle */
+      linear-gradient(var(--mc-stick-light) 100%, #0000 0) 7px 6px / 2px 8px,
+      /* Tool details */
+      linear-gradient(var(--mc-tool-dark) 100%, #0000 0) 2px 3px / 8px 1px;
+    background-repeat: no-repeat;
+    animation: tool-swing 1s ease-in-out infinite;
+}
+
+/* Minecraft Pig Icon */
+.mc-pig {
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    image-rendering: pixelated;
+    background:
+      /* Pig body */
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 3px 4px / 10px 6px,
+      /* Pig head */
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 5px 2px / 6px 4px,
+      /* Pig snout */
+      linear-gradient(var(--mc-pig-dark) 100%, #0000 0) 6px 4px / 4px 2px,
+      /* Pig legs */
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 4px 10px / 2px 2px,
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 7px 10px / 2px 2px,
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 10px 10px / 2px 2px;
+    background-repeat: no-repeat;
+    animation: pig-bounce 2s ease-in-out infinite;
+}
+
+/* Enhanced Crown for standalone use */
+.mc-crown {
+    display: inline-block;
+    width: 18px;
+    height: 15px;
+    image-rendering: pixelated;
+    background:
+      /* Crown jewels */
+      linear-gradient(var(--color-techno-ruby) 100%, #0000 0) 7px 2px / 4px 4px,
+      /* Crown spikes */
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 1px 5px / 3px 4px,
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 7px 1px / 4px 6px,
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 14px 5px / 3px 4px,
+      /* Crown base */
+      linear-gradient(var(--color-techno-gold) 100%, #0000 0) 1px 9px / 16px 6px;
+    background-repeat: no-repeat;
+    animation: crown-sparkle 3s ease-in-out infinite;
 }
 
 .subtitulo-acertijos {
@@ -649,12 +644,29 @@ body::after {
 
 /* Pequeño homenaje en la firma */
 .firma::after {
-    content: '🐷💗';
+    content: '';
     position: absolute;
     bottom: -20px;
     right: 10px;
-    font-size: 14px;
+    width: 24px;
+    height: 12px;
     opacity: 0.4;
+    background:
+      /* Small pig */
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 1px 2px / 8px 5px,
+      linear-gradient(var(--mc-pig-pink) 100%, #0000 0) 2px 1px / 6px 3px,
+      linear-gradient(var(--mc-pig-dark) 100%, #0000 0) 3px 2px / 4px 2px,
+      /* Small heart */
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 13px 2px / 2px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 16px 1px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 19px 1px / 2px 3px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 22px 2px / 2px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 14px 4px / 8px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 15px 6px / 6px 2px,
+      linear-gradient(var(--mc-heart-red) 100%, #0000 0) 17px 8px / 2px 2px;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    animation: pig-love 3s ease-in-out infinite;
 }
 
 .firma em {
@@ -796,4 +808,46 @@ body::after {
 @keyframes crown-pulse {
     0%, 100% { opacity: 0.4; transform: scale(1); }
     50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* New Minecraft Pixel Art Animations */
+@keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes chest-glow {
+    0%, 100% { opacity: 0.8; filter: brightness(1); }
+    50% { opacity: 1; filter: brightness(1.2); }
+}
+
+@keyframes tool-swing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+@keyframes pig-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-2px); }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes icon-shimmer {
+    0%, 100% {
+        filter: brightness(1) drop-shadow(0 0 1px rgba(255,255,255,0.2));
+    }
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 3px var(--color-primary-hover));
+    }
 }
