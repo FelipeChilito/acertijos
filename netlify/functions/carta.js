@@ -35,13 +35,13 @@ exports.handler = async (event, context) => {
             const contenidoCarta = `
                 <p>Mi amor, quiero que sepas lo mucho que significas para mí. Desde que llegaste a mi vida, todo ha cambiado de la manera más hermosa. Eres la luz que ilumina mis días y la razón por la cual mi corazón late con tanta fuerza y alegría.</p>
 
-                <p>Cada momento contigo es un tesoro que guardo en lo más profundo de mi ser. Tu sonrisa es mi refugio, tus palabras son mi inspiración y tu amor es la fuerza que me impulsa a ser mejor cada día. Gracias por amarme tal como soy y por creer en mí.</p>
+                <p>Cada momento contigo es un tesoro que guardo en lo más profundo de mi ser. Tu sonrisa es mi refugio, tus palabras son mi inspiración y tu amor es la fuerza que me impulsa a ser mejor cada día. Gracias por amarme tal como soy y por creer en mí. Eres increible.</p>
 
                 <p>No tengo palabras suficientes para expresar la gratitud que siento por tenerte a mi lado. Eres mi compañera perfecta, mi confidente, mi mejor amiga y el amor de mi vida. Contigo puedo afirmar que he descubierto lo que significa amar verdaderamente.</p>
 
                 <p>Quiero pasar el resto de mis días haciéndote feliz, cuidándote y demostrándote cada día lo mucho que te amo. Eres mi presente más preciado y mi futuro más deseado.</p>
 
-                <p>Te amo con todo mi corazón, mi alma y mi ser. Eres y serás siempre mi todo.</p>
+                <p>Te amo con todo mi corazón, mi alma y mi ser. Eres y serás siempre mi todo. Espero que este regalo sea de tu agrado y vamos por el cuarto mes y muchos mas :3</p>
             `;
 
             return {
