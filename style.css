@@ -19,7 +19,7 @@
     --color-romantic-light: #ec4899;
     --color-techno-gold: #ffd700;
     --color-techno-pink: #ff69b4;
-    --color-techno-tribute: #9333ea; /* Color morado para el tributo */
+    --color-techno-tribute: #9333ea;
 
     /* Espaciado */
     --space-8: 8px;
@@ -41,7 +41,7 @@
     --shadow-romantic: 0 8px 32px rgba(236, 72, 153, 0.2);
     --shadow-deep: 0 16px 48px rgba(236, 72, 153, 0.25);
     --shadow-crown: 0 4px 16px rgba(255, 215, 0, 0.3);
-    --shadow-tribute: 0 2px 12px rgba(147, 51, 234, 0.2);
+    --shadow-tribute: 0 4px 25px rgba(147, 51, 234, 0.1);
 
     /* Animaciones */
     --duration-fast: 150ms;
@@ -94,67 +94,76 @@ body::after {
     animation: techno-float 3s ease-in-out infinite;
 }
 
-/* ================================================= */
-/* HOMENAJE A TECHNOBLADE - BANDA INFERIOR CENTRADA  */
-/* ================================================= */
+/* ======================================================== */
+/* HOMENAJE A TECHNOBLADE - PIE DE PÁGINA SUTIL Y ELEGANTE */
+/* ======================================================== */
 .techno-tribute {
-    position: fixed;
-    bottom: 12px; /* Espacio desde el borde inferior */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 18px;
-    background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente pastel */
-    backdrop-filter: blur(8px); /* Efecto de desenfoque para un look suave */
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(147, 51, 234, 0.2); /* Borde morado muy sutil */
-    box-shadow: var(--shadow-tribute); /* Sombra suave y temática */
-    color: var(--color-techno-tribute); /* Color de texto que combina */
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 500;
-    z-index: 1000;
+    /* Posicionamiento y modelo de caja */
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px; /* Espacio entre el ícono y el texto */
-    opacity: 0; /* Oculto al inicio para la animación */
-    animation: tribute-fade-in 1.5s ease-out 1s forwards; /* Animación de aparición con retraso */
+    width: max-content; /* El contenedor se ajusta al contenido */
+    max-width: 90%;
+    margin: 48px auto 32px auto; /* Centrado y con buen espaciado vertical */
+    padding: 10px 22px;
+
+    /* Estilo visual */
+    background: rgba(253, 242, 248, 0.7); /* Fondo rosa muy pálido y semitransparente */
+    backdrop-filter: blur(10px); /* Desenfoque sutil para un efecto "glassmorphism" */
+    border: 1px solid rgba(236, 72, 153, 0.2); /* Borde rosa muy suave */
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-tribute);
+    
+    /* Tipografía */
+    color: var(--color-romantic-light); /* Color de texto rosa claro */
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    
+    /* Animación */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in-up 1s ease-out 0.5s forwards;
 }
 
-/* Icono de corona pixel art usando el pseudo-elemento ::before */
+/* Icono de corona pixelado creado con CSS */
 .techno-tribute::before {
     content: '';
     display: inline-block;
     width: 14px;
-    height: 10px;
-    /* La corona se dibuja con gradientes para crear el efecto pixelado */
+    height: 12px;
+    margin-top: -2px; /* Ajuste vertical fino */
+    image-rendering: pixelated; /* Asegura el look pixelado */
     background: 
       /* Fila 1 (joyas superiores): 3 'píxeles' de 2x2px */
       linear-gradient(var(--color-techno-gold) 100%, transparent 0) 0 0 / 2px 2px,
       linear-gradient(var(--color-techno-gold) 100%, transparent 0) 6px 0 / 2px 2px,
       linear-gradient(var(--color-techno-gold) 100%, transparent 0) 12px 0 / 2px 2px,
-      /* Fila 2 (banda de la corona): 1 'píxel' de 14x4px */
+      /* Fila 2 (cuerpo de la corona): 1 'píxel' de 14x4px */
       linear-gradient(var(--color-techno-gold) 100%, transparent 0) 0 4px / 14px 4px;
     background-repeat: no-repeat;
-    image-rendering: pixelated; /* Asegura el look pixelado */
-    animation: crown-pixel-shine 3s ease-in-out infinite;
-    position: relative;
-    top: -1px; /* Ajuste vertical fino */
+    animation: crown-shimmer 2.5s infinite ease-in-out;
 }
 
-@keyframes tribute-fade-in {
+@keyframes fade-in-up {
     from {
         opacity: 0;
-        transform: translate(-50%, 15px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translate(-50%, 0);
+        transform: translateY(0);
     }
 }
 
-@keyframes crown-pixel-shine {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
+@keyframes crown-shimmer {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.25);
+    }
 }
 
 
@@ -222,7 +231,7 @@ body::after {
 }
 
 .contenedor-acertijos::before {
-    content: '�💕';
+    content: '👑💕';
     position: absolute;
     top: -15px;
     left: 30px;
@@ -251,7 +260,7 @@ body::after {
 
 /* Corona sutil en el título */
 .titulo-acertijos::after {
-    content: '👑';
+    content: '�';
     position: absolute;
     top: -10px;
     right: -15px;
